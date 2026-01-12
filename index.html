@@ -5,319 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>德山妙峰 - 佛道画定制小程序项目计划书</title>
     <style>
-        /* 引入书法字体 */
-        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: linear-gradient(180deg, #f9f5f0 0%, #e8e0d5 100%);
+            background: linear-gradient(180deg, #f9f9f9 0%, #e9e9e9 100%);
             background-attachment: fixed;
-            color: #3a2e20;
-            line-height: 1.8;
+            color: #333;
+            font-family: "Noto Serif SC", "Ma Shan Zheng", serif;
+            font-size: 14px; /* 调小基础字体 */
+            line-height: 1.6;
+            padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            font-family: 'Noto Serif SC', serif;
-            position: relative;
         }
-
-        /* 水墨背景装饰 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 400px;
-            background: url("https://picsum.photos/id/1043/300/400") no-repeat;
-            background-size: contain;
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 250px;
-            height: 350px;
-            background: url("https://picsum.photos/id/1036/250/350") no-repeat;
-            background-size: contain;
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 80px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #c8aa8f;
-            position: relative;
-        }
-
-        header::after {
-            content: "禅境生画，妙笔绘峰";
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 14px;
-            color: #a67c52;
-            font-style: italic;
-            letter-spacing: 2px;
-        }
-
         h1 {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: 4.5rem;
-            color: #7d4f24;
-            margin-bottom: 15px;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 4px rgba(125, 79, 36, 0.1);
-        }
-
-        header p {
-            font-size: 1.3rem;
-            color: #635b53;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        .section {
-            margin-bottom: 70px;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(125, (125, 79, 36, 0.08);
-            border: 1px solid #e8e0d5;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 章节装饰角标 */
-        .section::before {
-            content: "";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-top: 2px solid #c8aa8f;
-            border-right: 2px solid #c8aa8f;
-            opacity: 0.3;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: #7d4f24;
+            font-size: 24px;
+            text-align: center;
             margin-bottom: 30px;
-            border-left: 5px solid #a67c52;
-            padding-left: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: #5c4028;
-            margin: 30px 0 20px;
-            font-weight: 600;
-            position: relative;
+            color: #2c3e50;
+            border-bottom: 2px solid #ccc;
             padding-bottom: 10px;
         }
-
-        h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 1px;
-            background: #c8aa8f;
+        h2 {
+            font-size: 20px;
+            margin: 20px 0 15px;
+            color: #34495e;
         }
-
+        h3 {
+            font-size: 16px;
+            margin: 15px 0 10px;
+            color: #4169e1;
+        }
         p, li {
-            font-size: 1.15rem;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
+            margin: 8px 0;
             text-align: justify;
         }
-
         ul {
-            padding-left: 40px;
-            list-style: none;
+            list-style: disc;
+            padding-left: 25px;
+            margin-bottom: 15px;
         }
-
-        ul li::before {
-            content: "•";
-            color: #a67c52;
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: inline-block;
-            width: 20px;
-            margin-left: -20px;
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-
+        /* 移除分栏样式，改为单排 */
         .table-box {
+            width: 100%;
             overflow-x: auto;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(125, 79, 36, 0.05);
+            margin: 15px 0;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #fff;
+            margin: 10px 0;
         }
-
-        th {
-            background: linear-gradient(90deg, #f9f6f2 0%, #f3f0eb 100%);
-            color: #7d4f24;
-            font-weight: 600;
-            padding: 15px;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            font-size: 13px; /* 表格字体再调小 */
             text-align: left;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #e8e0d5;
         }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #f3f0eb;
-            letter-spacing: 0.5px;
-        }
-
-        tr:hover {
-            background: #f9f6f2;
-            transition: background 0.3s ease;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 100px;
-            color: #8a7d6f;
-            font-size: 1.1rem;
-            padding-top: 30px;
-            border-top: 1px solid #e8e0d5;
-            font-style: italic;
-        }
-
-        /* 响应式适配 */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-            h2 {
-                font-size: 1.7rem;
-            }
-            h3 {
-                font-size: 1.3rem;
-            }
-            .section {
-                padding: 30px 20px;
-            }
+        th {
+            background: #f2f2f2;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>德山妙峰</h1>
-        <p>佛道画定制小程序项目计划书 | 小而美·造艺品·遇知音</p >
-    </header>
+    <h1>德山妙峰 - 佛道画定制小程序项目计划书</h1>
 
-    <section class="section">
-        <h2>一、缘起：笔墨寻踪，艺品待赏</h2>
-        <h3>1. 尘间画事之憾</h3>
+    <div class="section">
+        <h2>一、项目缘起</h2>
+        <p>佛道画作为传统艺术瑰宝，承载着东方美学与文化信仰，却在当下面临「宅邸陈设难合心意、寻师正统难、定制周期长」的痛点。本项目以「德山妙峰」为品牌核心，打造佛道画定制小程序，以「小而美」为核心理念，舍去繁杂功能，专注佛道画定制服务，依托师承正统的画师资源与AI技术赋能，让佛道画适配现代宅邸的陈设需求，重现传统艺术的生活美学。</p >
         <ul>
-            <li>一纸佛道佳画，难现宅邸陈设之姿，藏家无从预判笔墨入宅的相融之美；</li>
-            <li>爱画之人求艺心切，却难寻师承正统的佛道画手作，市面多是匠气之作，失了禅意风骨；</li>
-            <li>定制丹青无迹可寻，创作进度藏于工坊，待画之人苦等无期，难知笔墨何时落纸。</li>
+            <li>宅邸陈设之痛：一纸佛道画难现空间相融之美，藏家无从预判笔墨与宅邸的搭配效果。</li>
+            <li>寻师求画之困：爱画之人求艺心切，却难寻师承正统的佛道画手作，市面多为匠气之作，失了禅意风骨。</li>
+            <li>定制周期之殇：定制丹青无迹可寻，创作囿于工坊，待画之人苦等无期，难知笔墨落纸之时。</li>
         </ul>
-        <h3>2. 德山妙峰之愿</h3>
-        <ul>
-            <li>造「德山妙峰」一方小序，以“小而美”为骨，舍去繁芜，只做佛道画定制的诚心之事；</li>
-            <li>邀佛道画宗师的嫡传弟子执笔，以师承为脉，让每一幅画都藏着正统的笔墨传承，遇懂画的知音；</li>
-            <li>借AI之技，让佛道画既显宅邸挂置的相宜之态，又衬园林意境的殊胜之美，让笔墨的韵致跃然眼前。</li>
-        </ul>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>二、造境：方寸小程序，万千禅画意</h2>
+    <div class="section">
+        <h2>二、项目核心定位</h2>
+        <h3>1. 品牌内核：德山妙峰</h3>
+        <ul>
+            <li>以「小而美」为骨：舍去冗余功能，只做佛道画定制的诚心之事。</li>
+            <li>以「师承」为脉：佛道画宗师嫡传弟子执笔，每一幅作品皆承正统笔墨。</li>
+            <li>以「AI」为翼：借AI技术让佛道画适配宅邸陈设，兼具园林意境的殊胜之美，让笔墨韵律跃然空间。</li>
+        </ul>
+        <h3>2. 用户定位</h3>
+        <ul>
+            <li>佛道画钟情者：无关身份贫富，只因偏爱笔墨中的禅意，追求精神层面的文化共鸣。</li>
+            <li>宅邸造境雅客：欲以佛道画衬家居文化韵致，让方寸空间藏山水禅意。</li>
+            <li>寻礼寄情故人：想以佛道画为礼，藏文化之韵、寄心意之诚。</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>三、核心功能设计（单排布局版）</h2>
         <div class="table-box">
             <table>
                 <tr>
-                    <th>造景模块</th>
-                    <th>笔墨细节</th>
-                    <th>意境巧思</th>
+                    <th>功能模块</th>
+                    <th>核心内容</th>
+                    <th>设计初衷</th>
                 </tr>
                 <tr>
-                    <td>禅意玄关（首页）</td>
-                    <td>AI美学画卷轮播，实时排期浅墨标注，设「品画」「定制」「寻师」三径入口</td>
-                    <td>水墨晕染的动态过渡，檀木色勾边、象牙白铺底，藏中式留白的禅韵</td>
+                    <td>禅意首页</td>
+                    <td>AI美学画卷轮播（实时排期标注）、「品画」「定制」「寻师」三大入口、水墨动态模板（檀木色勾边+象牙白铺底）</td>
+                    <td>以中式留白的禅韵，让用户一眼感知品牌调性，快速触达核心服务</td>
                 </tr>
                 <tr>
-                    <td>幻境生画（AI合成）</td>
-                    <td>画师上传画稿，一键生成宅邸挂置实景，复现园林意境的殊胜之美，可存高清画影</td>
-                    <td>操作界面删繁就简，AI成画贴合佛道画的禅意构图，让笔墨与场景相融相生</td>
+                    <td>定制丹青</td>
+                    <td>宅邸尺寸上传、风格选择（禅意/山水/人物）、AI空间预览、画师匹配、定制周期公示</td>
+                    <td>解决「定制无迹可寻」痛点，让用户全程掌控定制流程</td>
                 </tr>
                 <tr>
-                    <td>丹青定约（定制系统）</td>
-                    <td>在线述定制心意、附参考墨稿，排期队列清晰可见，交付时日墨笔标注</td>
-                    <td>订单进度如画卷展开，流程简素，合爱画之人的使用心意</td>
+                    <td>寻师问艺</td>
+                    <td>画师师承履历展示、代表作品赏析、在线咨询、约稿通道</td>
+                    <td>建立「正统师承」认知，消除用户对作品真伪的顾虑</td>
                 </tr>
                 <tr>
-                    <td>寻师问艺（画师介绍）</td>
-                    <td>展宗师笔墨生平、德山妙峰的师承脉络，述弟子的创作心语与代表佳作</td>
-                    <td>图文如古卷铺陈，显师承的正统风骨，藏手工创作的匠心禅意</td>
+                    <td>墨韵社区</td>
+                    <td>用户定制作品分享、画师创作手记、佛道画文化科普</td>
+                    <td>沉淀品牌文化，打造佛道画爱好者的交流阵地</td>
                 </tr>
             </table>
         </div>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>三        <h2>三、知音：寻画之人，皆是有缘</h2>
-        <h3>1. 待遇的知音</h3>
-        <ul>
-            <li>佛道画的钟情者：无关身份贫富，只因偏爱笔墨中的禅意，愿为心仪之作驻足；</li>
-            <li>宅邸造境的雅客：欲以佛道画衬家居的文化韵致，让方寸空间藏山水禅心；</li>
-            <li>寻礼寄情的故人：想以定制佛道画为礼，藏文化之韵，寄心意之诚。</li>
-        </ul>
-        <h3>2. 德山妙峰的风骨</h3>
-        <ul>
-            <li>**师承正统**：落笔的画师，皆是佛道画宗师的嫡传弟子，每一笔都带着师门的笔墨风骨；</li>
-            <li>**幻境生美**：既解宅邸陈设的预判之难，又以园林意境衬佛道画的殊胜，让笔墨的美不止于纸；</li>
-            <li>**小而美心**：不做喧嚣的广告，不添冗余的功能，只守定制佛道画的诚心，待懂画的知音。</li>
-        </ul>
-    </section>
+    <div class="section">
+        <h2>四、项目特色与优势</h2>
+        <h3>1. 师承正统：笔墨有根</h3>
+        <p>执笔画师皆为佛道画宗师嫡传弟子，每一笔皆循传统技法，拒绝流水线匠作，保证作品的文化与艺术价值。</p >
+        <h3>2. AI赋能：虚实相融</h3>
+        <p>通过AI技术将用户宅邸空间与佛道画进行虚拟适配，提前预览陈设效果，解决「画与空间不搭」的痛点；同时用AI生成水墨动态效果，让静态画作展现动态禅韵。</p >
+        <h3>3. 小而美体验：去繁就简</h3>
+        <p>无喧嚣广告、无冗余功能，专注定制服务本身，让用户在极简操作中感受佛道文化的宁静。</p >
+    </div>
 
-    <section class="section">
-        <h2>四、行远：笔墨不倦，知音渐至</h2>
-        <h3>1. 聚师之力</h3>
+    <div class="section">
+        <h2>五、落地规划</h2>
+        <h3>1. 前期筹备（1-2个月）</h3>
         <ul>
-            <li>邀2-3位佛道画宗师的核心弟子入册，建「德山妙峰」画师卷，以师承为信，保笔墨品质；</li>
-            <li>立「妙峰品画」之规，每一幅定制佛道画，皆经宗师团队品鉴，让笔墨不负知音所托。</li>
+            <li>签约佛道画宗师嫡传弟子，建立画师资源库。</li>
+            <li>完成小程序UI/UX设计（贴合中式禅意风格）。</li>
+            <li>搭建AI空间预览技术框架，完成初步测试。</li>
         </ul>
-        <h3>2. 寻知之径</h3>
+        <h3>2. 开发上线（2-3个月）</h3>
         <ul>
-            <li>墨香私域：入佛道文化社群、艺术雅集，与爱画之人煮茶论画，引知音入坊；</li>
-            <li>口口相颂：老客荐新朋，便赠「德山妙峰」的佛道画小品，以画为礼，结艺缘；</li>
-            <li>笔墨传情：述画者的创作故事、宗师的艺术心法、佛道画的美学妙处，以文引画，以画遇人。</li>
+            <li>完成小程序核心功能开发与内测。</li>
+            <li>上线「品画」「寻师」模块，「定制」模块开启限量内测。</li>
+            <li>启动小红书、视频号等平台的文化内容种草。</li>
         </ul>
-        <h3>3. 润笔之资</h3>
+        <h3>3. 运营迭代（长期）</h3>
         <ul>
-            <li>依画的尺幅、工艺的繁简、画师的笔墨功力分档定价，区间1800-68000元，让不同爱画之人皆能寻得心仪之作；</li>
-            <li>以定制差价为基，辅AI场景展示的润笔费、加急定制的墨工费，兼售佛道画文创小品，让笔墨之路行稳致远。</li>
+            <li>根据用户反馈优化AI预览功能，丰富画师与作品库。</li>
+            <li>推出「佛道画文化沙龙」线上活动，强化品牌文化属性。</li>
+            <li>逐步开放全国定制服务，建立线下体验空间（北京/杭州等文化城市）。</li>
         </ul>
-    </section>
+    </div>
 
-    <footer>
-        <p>岁在乙巳冬月 · 德山妙峰记 | 一笔禅意，一纸相逢，愿笔墨遇知音</p >
-    </footer>
+    <div class="section">
+        <h2>六、结语</h2>
+        <p>「德山妙峰」不止是一个佛道画定制小程序，更是传统佛道艺术，更是传统佛道艺术与现代生活的连接桥梁。以师承守传统之根，以AI赋时代之翼，让佛道画走出工坊、走进宅邸，让更多人感受东方笔墨的禅意与力量。</p >
+    </div>
 </body>
 </html>
